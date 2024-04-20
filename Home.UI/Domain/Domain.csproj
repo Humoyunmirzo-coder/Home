@@ -7,17 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entitys\Home.Services\HomeRepair\" />
-    <Folder Include="Entitys\Home.Services\HomeBuild\" />
-    <Folder Include="Entitys\Home.Services\TechnicalServices\" />
-    <Folder Include="Entitys\Home.SpareParts\ConstructionMaterials\" />
-    <Folder Include="Entitys\Home.SpareParts\HomeAppliance\" />
-    <Folder Include="Entitys\Home.SpareParts\HomeEquipment\" />
-    <Folder Include="Entitys\Home\Home\" />
-    <Folder Include="Entitys\Home\Hotels\" />
-    <Folder Include="Entitys\Home\HousesRent\" />
-    <Folder Include="Entitys\Home\HomeTypeEnum\" />
-    <Folder Include="Models\" />
+    <Compile Remove="Entitys\Home.Services\**" />
+    <Compile Remove="Entitys\Home.SpareParts\**" />
+    <Compile Remove="Entitys\Home\HomeTypeEnum\**" />
+    <Compile Remove="Entitys\Home\Home\**" />
+    <Compile Remove="Entitys\Home\Hotels\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Entitys\Home.Services\**" />
+    <EmbeddedResource Remove="Entitys\Home.SpareParts\**" />
+    <EmbeddedResource Remove="Entitys\Home\HomeTypeEnum\**" />
+    <EmbeddedResource Remove="Entitys\Home\Home\**" />
+    <EmbeddedResource Remove="Entitys\Home\Hotels\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Entitys\Home.Services\**" />
+    <None Remove="Entitys\Home.SpareParts\**" />
+    <None Remove="Entitys\Home\HomeTypeEnum\**" />
+    <None Remove="Entitys\Home\Home\**" />
+    <None Remove="Entitys\Home\Hotels\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entitys\Role\" />
   </ItemGroup>
 
 </Project>
