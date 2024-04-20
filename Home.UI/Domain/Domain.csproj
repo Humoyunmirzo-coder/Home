@@ -13,10 +13,7 @@
     <Folder Include="Entitys\Home.SpareParts\ConstructionMaterials\" />
     <Folder Include="Entitys\Home.SpareParts\HomeAppliance\" />
     <Folder Include="Entitys\Home.SpareParts\HomeEquipment\" />
-    <Folder Include="Entitys\Home\Home\" />
-    <Folder Include="Entitys\Home\Hotels\" />
     <Folder Include="Entitys\Home\HousesRent\" />
-    <Folder Include="Entitys\Home\HomeTypeEnum\" />
     <Folder Include="Models\" />
   </ItemGroup>
 

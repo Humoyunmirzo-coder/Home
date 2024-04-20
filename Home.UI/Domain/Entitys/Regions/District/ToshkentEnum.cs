@@ -2,8 +2,8 @@
 {
     public enum ToshkentEnum
     {
-        Bektemir,
-        Chilonzor,
+        Chilonzor = 1,
+        Bektemir ,
         Hamza,
         Mirobod,
         MirzoUlugbek,

@@ -8,7 +8,7 @@ namespace Domain.Entitys.Regions.Province
 {
     public  enum ProvinceEnum
     {
-        Andijon,
+        Andijon ,
         Buxoro,
         Fargona,
         Jizzax,
