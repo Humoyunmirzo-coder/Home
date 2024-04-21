@@ -15,5 +15,6 @@ namespace Domain.Entitys.Home
         public string HomeType { get; set; }
 
         
+        
     }
 }
