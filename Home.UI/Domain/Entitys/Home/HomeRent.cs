@@ -7,9 +7,19 @@ using System.Threading.Tasks;
 
 namespace Domain.Entitys.Home
 {
-    public  class HomeRent : HomeRentBase
+    public  class HomeRent : HomeBase
     {
         public int Id { get; set; }
         public bool HomeOwner { get; set; }           ///  With or without a landlord 
+        public string DayMonth { get; set; }
+        /// <summary>
+        ///  Day or month type 
+        /// </summary>
+        public string UserType { get; set; }
+        /// <summary>
+        ///  user type  :   Male     
+        ///  user type  :   Woman      
+        ///  user type  :   Family       
+        /// </summar
     }
 }

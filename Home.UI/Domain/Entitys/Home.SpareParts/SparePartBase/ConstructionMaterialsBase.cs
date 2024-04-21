@@ -8,5 +8,6 @@ namespace Domain.Entitys.Home.SpareParts.SparePartBase
 {
     public  class ConstructionMaterialsBase
     {
+
     }
 }

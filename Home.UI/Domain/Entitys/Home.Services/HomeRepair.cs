@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entitys.Home.Services
 {
-    internal class HomeRepair
+    public  class HomeRepair 
     {
     }
 }

@@ -6,18 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entitys.Home.BaseEntitys
+namespace Domain.Entitys.Home.Services
 {
-    public  class HomeBase
+    public  class ServiceBase
     {
-        public double Arena { get; set; }
         public decimal Price { get; set; }
         public string PhotoPath { get; set; }
-        public int NumberOfRoom { get; set; }
         public ToshkentEnum AddressDistrict { get; set; }
         public ProvinceEnum AddressProvince { get; set; }
         public string InformationUniversal { get; set; }
         public long PhoneNumbers { get; set; }   /// 998900220407   
-
     }
 }

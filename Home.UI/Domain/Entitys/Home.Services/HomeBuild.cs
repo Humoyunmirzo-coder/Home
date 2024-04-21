@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Entitys.Home.Services
 {
-    internal class HomeBuild
-    {
+    public class HomeBuild  : ServiceBase
+
+    { 
+        public int Id { get; set; }
+
+
     }
 }

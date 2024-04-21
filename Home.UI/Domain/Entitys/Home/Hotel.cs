@@ -7,9 +7,21 @@ using System.Threading.Tasks;
 
 namespace Domain.Entitys.Home
 {
-    public  class Hotel : HotelBase
+    public  class Hotel : HomeBase
     {
         public int Id { get; set; }
         public string DayMonth { get; set; }         /// Day or month time 
+        public string RoomType { get; set; }
+        /// <summary>       
+        ///  Bissnes
+        ///  Comfortable
+        ///  Cheap
+        /// </summary>
+        public string UserType { get; set; }
+        /// <summary>
+        ///  user type  :   Male     
+        ///  user type  :   Woman      
+        ///  user type  :   Family       
+        /// </summary>
     }
 }
