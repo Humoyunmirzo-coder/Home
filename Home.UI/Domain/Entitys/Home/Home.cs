@@ -14,5 +14,6 @@ namespace Domain.Entitys.Home
         public int YearBuilt { get; set; }
         public string HomeType { get; set; }
 
+        
     }
 }
