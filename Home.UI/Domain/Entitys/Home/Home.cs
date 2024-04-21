@@ -13,6 +13,7 @@ namespace Domain.Entitys.Home
         public string Discription { get; set; }
         public int YearBuilt { get; set; }
         public string HomeType { get; set; }
-
+        
+        
     }
 }

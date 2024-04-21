@@ -17,7 +17,7 @@ namespace Domain.Entitys.Home.BaseEntitys
         public ToshkentEnum AddressDistrict { get; set; }
         public ProvinceEnum AddressProvince { get; set; }
         public string InformationUniversal { get; set; }
-        public long PhoneNumbers { get; set; }   /// 998900220407   
+        public string PhoneNumbers { get; set; }   /// 998900220407   
 
     }
 }
