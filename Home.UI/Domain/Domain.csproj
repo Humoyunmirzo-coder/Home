@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entitys\Home.Services\HomeRepair\" />
-    <Folder Include="Entitys\Home.Services\HomeBuild\" />
-    <Folder Include="Entitys\Home.Services\TechnicalServices\" />
-    <Folder Include="Entitys\Home.SpareParts\ConstructionMaterials\" />
-    <Folder Include="Entitys\Home.SpareParts\HomeAppliance\" />
-    <Folder Include="Entitys\Home.SpareParts\HomeEquipment\" />
-    <Folder Include="Entitys\Home\HousesRent\" />
     <Folder Include="Models\" />
   </ItemGroup>
 

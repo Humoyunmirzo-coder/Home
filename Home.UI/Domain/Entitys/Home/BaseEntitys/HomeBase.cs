@@ -1,13 +1,17 @@
 ﻿using Domain.Entitys.Regions.District;
 using Domain.Entitys.Regions.Province;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Domain.Entitys.Home.Home
+namespace Domain.Entitys.Home.BaseEntitys
 {
-    public class HomeBase
+    public  class HomeBase
     {
-        public int Id { get; set; }
-        public int Arena { get; set; }
-        public long Price { get; set; }
+        public double Arena { get; set; }
+        public decimal Price { get; set; }
         public int YearBuilt { get; set; }
         public string HomeType { get; set; }
         public string PhotoPath { get; set; }
@@ -16,7 +20,6 @@ namespace Domain.Entitys.Home.Home
         public ProvinceEnum AddressProvince { get; set; }
         public string InformationUniversal { get; set; }
         public long PhoneNumbers { get; set; }   /// 998900220407   
-
 
     }
 }

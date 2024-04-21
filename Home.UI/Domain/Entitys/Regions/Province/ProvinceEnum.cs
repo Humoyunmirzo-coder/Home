@@ -20,7 +20,7 @@ namespace Domain.Entitys.Regions.Province
         Sirdaryo,
         Surxondaryo,
         Toshkent,
-        ToshkentSH,
-        QoraqalpogistonRes
+        ToshkentSHahar,
+        QoraqalpogistonRespublikasi
     }
 }

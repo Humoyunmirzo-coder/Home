@@ -6,14 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entitys.Home.Hotels
+namespace Domain.Entitys.Home.BaseEntitys
 {
-    public  class HotelBase
+    public   class HomeRentBase
     {
-        public int Id { get; set; }
         public long Price { get; set; }
-        public string RoomType { get; set; }
-        public string UserType { get; set; }   
+        public string DayMonth { get; set; }
+        /// <summary>
+        ///  Day or month type 
+        /// </summary>
+        public string UserType { get; set; }
         /// <summary>
         ///  user type  :   Male     
         ///  user type  :   Woman      
