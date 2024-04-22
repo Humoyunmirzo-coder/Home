@@ -11,6 +11,8 @@ namespace Domain.Entitys.Home.Services
     public  class ServiceBase
     {
         public decimal Price { get; set; }
+        public string MoneyType { get; set; }
+
         public string PhotoPath { get; set; }
         public string TheEmployerAndEmployee { get; set; }
         public string ServiceType { get; set; }

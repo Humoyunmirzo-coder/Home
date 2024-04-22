@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entitys.Home.SpareParts
 {
-    public  class ConstructionMaterials : ConstructionMaterialsBase
+    public  class ConstructionMaterials : HomeSparePartBase
     {
+        public int Id { get; set; }
+        public string  ProductType { get; set; }
+        public string  MaterialType { get; set; }
+        public string SizeType { get; set; }
+        public string Thickness {  get; set; }
     }
 }
