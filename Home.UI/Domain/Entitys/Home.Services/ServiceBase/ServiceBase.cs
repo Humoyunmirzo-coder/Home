@@ -12,6 +12,8 @@ namespace Domain.Entitys.Home.Services
     {
         public decimal Price { get; set; }
         public string PhotoPath { get; set; }
+        public string TheEmployerAndEmployee { get; set; }
+        public string ServiceType { get; set; }
         public ToshkentEnum AddressDistrict { get; set; }
         public ProvinceEnum AddressProvince { get; set; }
         public string InformationUniversal { get; set; }

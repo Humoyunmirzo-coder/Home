@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entitys.Home.Services
 {
-    internal class TechnicalServices
+    public  class TechnicalServices : ServiceBase
     {
+        public int Id { get; set; }
+        public string TimeType{ get; set; }
     }
 }

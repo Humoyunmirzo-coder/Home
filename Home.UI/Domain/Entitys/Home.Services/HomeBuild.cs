@@ -10,6 +10,10 @@ namespace Domain.Entitys.Home.Services
 
     { 
         public int Id { get; set; }
+ 
+        public string FormatType { get; set; }
+
+
 
 
     }
