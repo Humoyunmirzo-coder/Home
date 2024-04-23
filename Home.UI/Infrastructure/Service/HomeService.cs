@@ -3,6 +3,7 @@ using Domain.Entitys.Home;
 using Domain.Entitys.Home.Services;
 using Domain.Entitys.Home.SpareParts;
 using Domain.Model;
+using Infrastructure.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,14 @@ namespace Infrastructure.Service
 {
     public class HomeService : IHomeService
     {
+
+        private readonly HomeDbContext _homeDbContext;
+
+        public HomeService(HomeDbContext homeDbContext)
+        {
+            _homeDbContext = homeDbContext;
+        }
+
         public Task<Response<ConstructionMaterials>> CreateConstructionMaterialsAynce(Home home)
         {
             throw new NotImplementedException();
