@@ -50,7 +50,26 @@ namespace Aplication.Service
         Task<Response<TechnicalServices>> GetByIdTechnicalServicesAynce(int Id);
         Task<Response<List<TechnicalServices>>> CreateTechnicalServicesAynce();
 
-  
+        
+        Task<Response<ConstructionMaterials>> CreateConstructionMaterialsAynce(Home home);
+        Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id);
+        Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(Home home);
+        Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id);
+        Task<Response<List<ConstructionMaterials>>> CreateConstructionMaterialsAynce();
+
+            Task<Response<HomeAppliance>> CreateHomeApplianceAynce(Home home);
+        Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id);
+        Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(Home home);
+        Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id);
+        Task<Response<List<HomeAppliance>>> CreateHomeApplianceAynce();
+
+        
+        Task<Response<HomeEquipment>> CreateHomeEquipmentAynce(Home home);
+        Task<Response<HomeEquipment>> DeleteHomeEquipmentAynce(int Id);
+        Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(Home home);
+        Task<Response<HomeEquipment>> GetByIdHomeEquipmentAynce(int Id);
+        Task<Response<List<HomeEquipment>>> CreateHomeEquipmentAynce();
+
 
 
 
