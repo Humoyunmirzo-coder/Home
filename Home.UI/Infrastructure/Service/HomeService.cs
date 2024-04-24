@@ -248,24 +248,84 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<HomeRent>> DeleteHomeRentAynce(int Id)
+        public async  Task<Response<HomeRent>> DeleteHomeRentAynce(int Id)
         {
-            throw new NotImplementedException();
+            var homeRent = await _homeDbContext.HomeRents.FindAsync(Id);
+            if (homeRent == null)
+            {
+                return new Response<HomeRent>(" Home Rent  not found.");
+            }
+
+            try
+            {
+                _homeDbContext.HomeRents.Remove(homeRent);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRent>(homeRent); // Muvaffaqiyatli holat
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRent>("Failed to delete home rent : " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
+        public async  Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
         {
-            throw new NotImplementedException();
+            var homeRepair = await _homeDbContext.HomeRepairs.FindAsync(Id);
+            if (homeRepair == null)
+            {
+                return new Response<HomeRepair >("home Repair material not found.");
+            }
+
+            try
+            {
+                _homeDbContext.HomeRepairs.Remove(homeRepair);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response< HomeRepair>(homeRepair); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to delete  home Repair : " + ex.Message);
+            }
         }
 
-        public Task<Response<Hotel>> DeleteHotelAynce(int Id)
+        public async  Task<Response<Hotel>> DeleteHotelAynce(int Id)
         {
-            throw new NotImplementedException();
+            var Hotel = await _homeDbContext.Hotels.FindAsync(Id);
+            if (Hotel == null)
+            {
+                return new Response<Hotel>("hotel  not found.");
+            }
+
+            try
+            {
+                _homeDbContext.Hotels.Remove(Hotel);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Hotel>(Hotel); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<Hotel>("Failed to delete hotel : " + ex.Message);
+            }
         }
 
-        public Task<Response<TechnicalServices>> DeleteTechnicalServicesAynce(int Id)
+        public async  Task<Response<TechnicalServices>> DeleteTechnicalServicesAynce(int Id)
         {
-            throw new NotImplementedException();
+            var techicalService  = await _homeDbContext.TechnicalServices.FindAsync(Id);
+            if (techicalService == null)
+            {
+                return new Response<TechnicalServices>(" technical service  not found.");
+            }
+
+            try
+            {
+                _homeDbContext.TechnicalServices.Remove(techicalService);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<TechnicalServices>(techicalService); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<TechnicalServices>("Failed to delete  technical service : " + ex.Message);
+            }
         }
 
         public Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
