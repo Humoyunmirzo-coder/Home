@@ -4,6 +4,7 @@ using Domain.Entitys.Home.Services;
 using Domain.Entitys.Home.SpareParts;
 using Domain.Model;
 using Infrastructure.DataAccess;
+using Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,89 +23,130 @@ namespace Infrastructure.Service
             _homeDbContext = homeDbContext;
         }
 
-        public Task<Response<ConstructionMaterials>> CreateConstructionMaterialsAynce(Home home)
+        public async Task<Response<ConstructionMaterials>> CreateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.ConstructionMaterials.AddAsync(constructionMaterials);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<ConstructionMaterials>(constructionMaterials); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<ConstructionMaterials>("Failed to create construction material: " + ex.Message);
+            }
         }
 
-        public Task<Response<List<ConstructionMaterials>>> CreateConstructionMaterialsAynce()
+        public async  Task<Response<HomeAppliance>> CreateHomeApplianceAynce(HomeAppliance homeAppliance)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.HomeAppliances.AddAsync(homeAppliance);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeAppliance>(homeAppliance);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeAppliance>("Failed to create  homeAppliance: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeAppliance>> CreateHomeApplianceAynce(Home home)
+        public async Task<Response<Home>> CreateHomeAynce(Home home)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.Homes.AddAsync(home);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Home>(home);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Home>("Failed to create home: " +  ex.Message);
+            }
         }
 
-        public Task<Response<List<HomeAppliance>>> CreateHomeApplianceAynce()
+        public async  Task<Response<HomeBuild>> CreateHomeBuildAynce(HomeBuild homeBuild)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.HomeBuilds.AddAsync(homeBuild);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeBuild>(homeBuild);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeBuild>("Failed to create homeBuild: " + ex.Message);
+            }
         }
 
-        public Task<Response<Home>> CreateHomeAynce(Home home)
+        public async  Task<Response<HomeEquipment>> CreateHomeEquipmentAynce(HomeEquipment homeEquipment)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.HomeEquipment.AddAsync(homeEquipment);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeEquipment>(homeEquipment);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeEquipment>("Failed to create homeEquipment: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeBuild>> CreateHomeBuildAynce(Home home)
+        public async  Task<Response<HomeRent>> CreateHomeRentAynce(HomeRent homeRent)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.HomeRents.AddAsync(homeRent);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRent>(homeRent);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRent>("Failed to create  homeRent: " + ex.Message);
+            }
         }
 
-        public Task<Response<List<HomeBuild>>> CreateHomeBuildAynce()
+        public async  Task<Response<HomeRepair>> CreateHomeRepairAynce(HomeRepair homeRepair)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.HomeRepairs.AddAsync(homeRepair);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRepair>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to create homeRepair: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeEquipment>> CreateHomeEquipmentAynce(Home home)
+        public async  Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.Hotels.AddAsync(hotel);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Hotel>(hotel);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Hotel>("Failed to create hotel: " + ex.Message);
+            } 
         }
 
-        public Task<Response<List<HomeEquipment>>> CreateHomeEquipmentAynce()
+        public async  Task<Response<TechnicalServices>> CreateTechnicalServicesAynce(TechnicalServices technicalServices)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<HomeRent>> CreateHomeRentAynce(Home home)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<List<HomeRent>>> CreateHomeRentAynce()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<HomeRepair>> CreateHomeRepairAynce(Home home)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<List<HomeRepair>>> CreateHomeRepairAynce()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<Hotel>> CreateHotelAynce(Home home)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<List<Hotel>>> CreateHotelAynce()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<TechnicalServices>> CreateTechnicalServicesAynce(Home home)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response<List<TechnicalServices>>> CreateTechnicalServicesAynce()
-        {
-            throw new NotImplementedException();
+            try
+            {
+                await _homeDbContext.TechnicalServices.AddAsync(technicalServices);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<TechnicalServices>(technicalServices);
+            }
+            catch (Exception ex)
+            {
+                return new Response<TechnicalServices>("Failed to create technicalService: " + ex.Message);
+            }
         }
 
         public Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id)
@@ -152,7 +194,47 @@ namespace Infrastructure.Service
             throw new NotImplementedException();
         }
 
+        public Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Response<List<Home>>> GetAllHomeAynce()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response<List<HomeEquipment>>> GetAllHomeEquipmentAynce()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response<List<HomeRent>>> GetAllHomeRentAynce()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response<List<Hotel>>> GetAllHotelAynce()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response<List<TechnicalServices>>> GetAllTechnicalServicesAynce()
         {
             throw new NotImplementedException();
         }
@@ -202,12 +284,12 @@ namespace Infrastructure.Service
             throw new NotImplementedException();
         }
 
-        public Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(Home home)
+        public Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(Home home)
+        public Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
         {
             throw new NotImplementedException();
         }
@@ -217,32 +299,32 @@ namespace Infrastructure.Service
             throw new NotImplementedException();
         }
 
-        public Task<Response<HomeBuild>> UpdateHomeBuildAynce(Home home)
+        public Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(Home home)
+        public Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment homeEquipment)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response<HomeRent>> UpdateHomeRentAynce(Home home)
+        public Task<Response<HomeRent>> UpdateHomeRentAynce(HomeRent homeRent)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response<HomeRepair>> UpdateHomeRepairAynce(Home home)
+        public Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response<Hotel>> UpdateHotelAynce(Home home)
+        public Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(Home home)
+        public Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(TechnicalServices technicalServices)
         {
             throw new NotImplementedException();
         }
