@@ -149,9 +149,24 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id)
+        public async  Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id)
         {
-            throw new NotImplementedException();
+            var constructionMaterial = await _homeDbContext.ConstructionMaterials.FindAsync(Id);
+            if (constructionMaterial == null)
+            {
+                return new Response<ConstructionMaterials>("Construction material not found.");
+            }
+
+            try
+            {
+                _homeDbContext.ConstructionMaterials.Remove(constructionMaterial);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<ConstructionMaterials>(constructionMaterial); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<ConstructionMaterials>("Failed to delete construction material: " + ex.Message);
+            }
         }
 
         public Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id)
