@@ -169,24 +169,83 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id)
+        public async  Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id)
         {
-            throw new NotImplementedException();
+            var homeAppliance = await _homeDbContext.HomeAppliances.FindAsync(Id);
+            if (homeAppliance == null)
+            {
+                return new Response<HomeAppliance>("Home  Appliance not found.");
+            }
+
+            try
+            {
+                _homeDbContext.HomeAppliances.Remove(homeAppliance);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeAppliance>(homeAppliance); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeAppliance>("Failed to delete Home Appliance: " + ex.Message);
+            }
         }
 
-        public Task<Response<Home>> DeleteHomeAynce(int Id)
+        public async  Task<Response<Home>> DeleteHomeAynce(int Id)
         {
-            throw new NotImplementedException();
+            var home = await _homeDbContext.Homes.FindAsync(Id);
+            if (home  == null)
+            {
+                return new Response<Home>(" Home  not found.");
+            }
+            try
+            {
+                _homeDbContext.Homes.Remove(home);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Home>(home);  
+            }
+            catch (Exception ex)
+            {
+                return new Response<Home>("Failed to delete  Home: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeBuild>> DeleteHomeBuildAynce(int Id)
+        public async  Task<Response<HomeBuild>> DeleteHomeBuildAynce(int Id)
         {
-            throw new NotImplementedException();
+            var homebuild = await _homeDbContext.HomeBuilds.FindAsync(Id);
+            if (homebuild == null)
+            {
+                return new Response<HomeBuild>("Home build  not found.");
+            }
+
+            try
+            {
+                _homeDbContext.HomeBuilds.Remove(homebuild );
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeBuild>(homebuild); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeBuild>("Failed to delete  Home build : " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeEquipment>> DeleteHomeEquipmentAynce(int Id)
+        public async  Task<Response<HomeEquipment>> DeleteHomeEquipmentAynce(int Id)
         {
-            throw new NotImplementedException();
+            var homeEquipment  = await _homeDbContext.HomeEquipment.FindAsync(Id);
+            if (homeEquipment == null)
+            {
+                return new Response<HomeEquipment>(" Home Equipment  not found.");
+            }
+
+            try
+            {
+                _homeDbContext.HomeEquipment.Remove(homeEquipment);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeEquipment>(homeEquipment); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeEquipment>("Failed to delete Home  Equipment : " + ex.Message);
+            }
         }
 
         public Task<Response<HomeRent>> DeleteHomeRentAynce(int Id)
