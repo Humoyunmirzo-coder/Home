@@ -371,34 +371,88 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
+        public async  Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeBuild   = await _homeDbContext.HomeBuilds.ToListAsync();
+
+                return new Response<List<HomeBuild>>(homeBuild);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeBuild>>("Failed to get all home build: " + ex.Message);
+            }
         }
 
-        public Task<Response<List<HomeEquipment>>> GetAllHomeEquipmentAynce()
+        public async  Task<Response<List<HomeEquipment>>> GetAllHomeEquipmentAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeEquipment  = await _homeDbContext.HomeEquipment.ToListAsync();
+
+                return new Response<List<HomeEquipment>>(homeEquipment);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeEquipment >>("Failed to get all home equipment : " + ex.Message);
+            }
         }
 
-        public Task<Response<List<HomeRent>>> GetAllHomeRentAynce()
+        public async  Task<Response<List<HomeRent>>> GetAllHomeRentAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeRent  = await _homeDbContext.HomeRents.ToListAsync();
+
+                return new Response<List<HomeRent>>(homeRent);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeRent>>("Failed to get all Home Rent: " + ex.Message);
+            }
         }
 
-        public Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
+        public async  Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeRepair  = await _homeDbContext.HomeRepairs.ToListAsync();
+
+                return new Response<List<HomeRepair >>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeRepair>>("Failed to get all home Repair : " + ex.Message);
+            }
         }
 
-        public Task<Response<List<Hotel>>> GetAllHotelAynce()
+        public async  Task<Response<List<Hotel>>> GetAllHotelAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var hotel = await _homeDbContext.Hotels.ToListAsync();
+
+                return new Response<List<Hotel>>(hotel);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<Hotel>>("Failed to get all  Hotel: " + ex.Message);
+            }
         }
 
-        public Task<Response<List<TechnicalServices>>> GetAllTechnicalServicesAynce()
+        public async  Task<Response<List<TechnicalServices>>> GetAllTechnicalServicesAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var technicalService  = await _homeDbContext.TechnicalServices.ToListAsync();
+
+                return new Response<List<TechnicalServices>>(technicalService);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<TechnicalServices>>("Failed to get all TechnicalService: " + ex.Message);
+            }
         }
 
         public Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id)
