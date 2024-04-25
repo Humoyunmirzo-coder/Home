@@ -682,29 +682,74 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment homeEquipment)
+        public async  Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment homeEquipment)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeEquipment.Update(homeEquipment);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeEquipment>(homeEquipment); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeEquipment>("Failed to update  home equipment : " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeRent>> UpdateHomeRentAynce(HomeRent homeRent)
+        public async  Task<Response<HomeRent>> UpdateHomeRentAynce(HomeRent homeRent)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeRents.Update(homeRent);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRent>(homeRent); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRent>("Failed to update  home rent: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair)
+        public async  Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeRepairs.Update(homeRepair);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRepair>(homeRepair); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to update home  repair: " + ex.Message);
+            }
         }
 
-        public Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel)
+        public async  Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.Hotels.Update(hotel);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Hotel>(hotel); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<Hotel>("Failed to update hotel: " + ex.Message);
+            }
         }
 
-        public Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(TechnicalServices technicalServices)
+        public async  Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(TechnicalServices technicalServices)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.TechnicalServices.Update(technicalServices);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<TechnicalServices>(technicalServices); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<TechnicalServices>("Failed to update technical Services: " + ex.Message);
+            }
         }
     }
 }
