@@ -4,12 +4,6 @@ using Domain.Entitys.Home.Services;
 using Domain.Entitys.Home.SpareParts;
 using Domain.Model;
 using Infrastructure.DataAccess;
-using Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Service
@@ -30,7 +24,7 @@ namespace Infrastructure.Service
             {
                 await _homeDbContext.ConstructionMaterials.AddAsync(constructionMaterials);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<ConstructionMaterials>(constructionMaterials); 
+                return new Response<ConstructionMaterials>(constructionMaterials);
             }
             catch (Exception ex)
             {
@@ -38,7 +32,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeAppliance>> CreateHomeApplianceAynce(HomeAppliance homeAppliance)
+        public async Task<Response<HomeAppliance>> CreateHomeApplianceAynce(HomeAppliance homeAppliance)
         {
             try
             {
@@ -62,11 +56,11 @@ namespace Infrastructure.Service
             }
             catch (Exception ex)
             {
-                return new Response<Home>("Failed to create home: " +  ex.Message);
+                return new Response<Home>("Failed to create home: " + ex.Message);
             }
         }
 
-        public async  Task<Response<HomeBuild>> CreateHomeBuildAynce(HomeBuild homeBuild)
+        public async Task<Response<HomeBuild>> CreateHomeBuildAynce(HomeBuild homeBuild)
         {
             try
             {
@@ -80,7 +74,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeEquipment>> CreateHomeEquipmentAynce(HomeEquipment homeEquipment)
+        public async Task<Response<HomeEquipment>> CreateHomeEquipmentAynce(HomeEquipment homeEquipment)
         {
             try
             {
@@ -94,7 +88,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRent>> CreateHomeRentAynce(HomeRent homeRent)
+        public async Task<Response<HomeRent>> CreateHomeRentAynce(HomeRent homeRent)
         {
             try
             {
@@ -108,7 +102,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRepair>> CreateHomeRepairAynce(HomeRepair homeRepair)
+        public async Task<Response<HomeRepair>> CreateHomeRepairAynce(HomeRepair homeRepair)
         {
             try
             {
@@ -122,7 +116,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
+        public async Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
         {
             try
             {
@@ -133,10 +127,10 @@ namespace Infrastructure.Service
             catch (Exception ex)
             {
                 return new Response<Hotel>("Failed to create hotel: " + ex.Message);
-            } 
+            }
         }
 
-        public async  Task<Response<TechnicalServices>> CreateTechnicalServicesAynce(TechnicalServices technicalServices)
+        public async Task<Response<TechnicalServices>> CreateTechnicalServicesAynce(TechnicalServices technicalServices)
         {
             try
             {
@@ -150,7 +144,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id)
+        public async Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id)
         {
             var constructionMaterial = await _homeDbContext.ConstructionMaterials.FindAsync(Id);
             if (constructionMaterial == null)
@@ -162,7 +156,7 @@ namespace Infrastructure.Service
             {
                 _homeDbContext.ConstructionMaterials.Remove(constructionMaterial);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<ConstructionMaterials>(constructionMaterial); 
+                return new Response<ConstructionMaterials>(constructionMaterial);
             }
             catch (Exception ex)
             {
@@ -170,7 +164,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id)
+        public async Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id)
         {
             var homeAppliance = await _homeDbContext.HomeAppliances.FindAsync(Id);
             if (homeAppliance == null)
@@ -182,7 +176,7 @@ namespace Infrastructure.Service
             {
                 _homeDbContext.HomeAppliances.Remove(homeAppliance);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeAppliance>(homeAppliance); 
+                return new Response<HomeAppliance>(homeAppliance);
             }
             catch (Exception ex)
             {
@@ -190,10 +184,10 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<Home>> DeleteHomeAynce(int Id)
+        public async Task<Response<Home>> DeleteHomeAynce(int Id)
         {
             var home = await _homeDbContext.Homes.FindAsync(Id);
-            if (home  == null)
+            if (home == null)
             {
                 return new Response<Home>(" Home  not found.");
             }
@@ -201,7 +195,7 @@ namespace Infrastructure.Service
             {
                 _homeDbContext.Homes.Remove(home);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<Home>(home);  
+                return new Response<Home>(home);
             }
             catch (Exception ex)
             {
@@ -209,7 +203,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeBuild>> DeleteHomeBuildAynce(int Id)
+        public async Task<Response<HomeBuild>> DeleteHomeBuildAynce(int Id)
         {
             var homebuild = await _homeDbContext.HomeBuilds.FindAsync(Id);
             if (homebuild == null)
@@ -219,9 +213,9 @@ namespace Infrastructure.Service
 
             try
             {
-                _homeDbContext.HomeBuilds.Remove(homebuild );
+                _homeDbContext.HomeBuilds.Remove(homebuild);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeBuild>(homebuild); 
+                return new Response<HomeBuild>(homebuild);
             }
             catch (Exception ex)
             {
@@ -229,9 +223,9 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeEquipment>> DeleteHomeEquipmentAynce(int Id)
+        public async Task<Response<HomeEquipment>> DeleteHomeEquipmentAynce(int Id)
         {
-            var homeEquipment  = await _homeDbContext.HomeEquipment.FindAsync(Id);
+            var homeEquipment = await _homeDbContext.HomeEquipment.FindAsync(Id);
             if (homeEquipment == null)
             {
                 return new Response<HomeEquipment>(" Home Equipment  not found.");
@@ -241,7 +235,7 @@ namespace Infrastructure.Service
             {
                 _homeDbContext.HomeEquipment.Remove(homeEquipment);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeEquipment>(homeEquipment); 
+                return new Response<HomeEquipment>(homeEquipment);
             }
             catch (Exception ex)
             {
@@ -249,7 +243,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRent>> DeleteHomeRentAynce(int Id)
+        public async Task<Response<HomeRent>> DeleteHomeRentAynce(int Id)
         {
             var homeRent = await _homeDbContext.HomeRents.FindAsync(Id);
             if (homeRent == null)
@@ -269,19 +263,19 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
+        public async Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
         {
             var homeRepair = await _homeDbContext.HomeRepairs.FindAsync(Id);
             if (homeRepair == null)
             {
-                return new Response<HomeRepair >("home Repair material not found.");
+                return new Response<HomeRepair>("home Repair material not found.");
             }
 
             try
             {
                 _homeDbContext.HomeRepairs.Remove(homeRepair);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response< HomeRepair>(homeRepair); 
+                return new Response<HomeRepair>(homeRepair);
             }
             catch (Exception ex)
             {
@@ -289,7 +283,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<Hotel>> DeleteHotelAynce(int Id)
+        public async Task<Response<Hotel>> DeleteHotelAynce(int Id)
         {
             var Hotel = await _homeDbContext.Hotels.FindAsync(Id);
             if (Hotel == null)
@@ -301,7 +295,7 @@ namespace Infrastructure.Service
             {
                 _homeDbContext.Hotels.Remove(Hotel);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<Hotel>(Hotel); 
+                return new Response<Hotel>(Hotel);
             }
             catch (Exception ex)
             {
@@ -309,9 +303,9 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<TechnicalServices>> DeleteTechnicalServicesAynce(int Id)
+        public async Task<Response<TechnicalServices>> DeleteTechnicalServicesAynce(int Id)
         {
-            var techicalService  = await _homeDbContext.TechnicalServices.FindAsync(Id);
+            var techicalService = await _homeDbContext.TechnicalServices.FindAsync(Id);
             if (techicalService == null)
             {
                 return new Response<TechnicalServices>(" technical service  not found.");
@@ -321,7 +315,7 @@ namespace Infrastructure.Service
             {
                 _homeDbContext.TechnicalServices.Remove(techicalService);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<TechnicalServices>(techicalService); 
+                return new Response<TechnicalServices>(techicalService);
             }
             catch (Exception ex)
             {
@@ -329,7 +323,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public  async  Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
+        public async Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
         {
             try
             {
@@ -340,10 +334,10 @@ namespace Infrastructure.Service
             catch (Exception ex)
             {
                 return new Response<List<ConstructionMaterials>>("Failed to get all construction materials: " + ex.Message);
-            } 
+            }
         }
 
-        public async  Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
+        public async Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
         {
             try
             {
@@ -357,7 +351,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<List<Home>>> GetAllHomeAynce()
+        public async Task<Response<List<Home>>> GetAllHomeAynce()
         {
             try
             {
@@ -371,11 +365,11 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
+        public async Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
         {
             try
             {
-                var homeBuild   = await _homeDbContext.HomeBuilds.ToListAsync();
+                var homeBuild = await _homeDbContext.HomeBuilds.ToListAsync();
 
                 return new Response<List<HomeBuild>>(homeBuild);
             }
@@ -385,25 +379,25 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<List<HomeEquipment>>> GetAllHomeEquipmentAynce()
+        public async Task<Response<List<HomeEquipment>>> GetAllHomeEquipmentAynce()
         {
             try
             {
-                var homeEquipment  = await _homeDbContext.HomeEquipment.ToListAsync();
+                var homeEquipment = await _homeDbContext.HomeEquipment.ToListAsync();
 
                 return new Response<List<HomeEquipment>>(homeEquipment);
             }
             catch (Exception ex)
             {
-                return new Response<List<HomeEquipment >>("Failed to get all home equipment : " + ex.Message);
+                return new Response<List<HomeEquipment>>("Failed to get all home equipment : " + ex.Message);
             }
         }
 
-        public async  Task<Response<List<HomeRent>>> GetAllHomeRentAynce()
+        public async Task<Response<List<HomeRent>>> GetAllHomeRentAynce()
         {
             try
             {
-                var homeRent  = await _homeDbContext.HomeRents.ToListAsync();
+                var homeRent = await _homeDbContext.HomeRents.ToListAsync();
 
                 return new Response<List<HomeRent>>(homeRent);
             }
@@ -413,13 +407,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
+        public async Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
         {
             try
             {
-                var homeRepair  = await _homeDbContext.HomeRepairs.ToListAsync();
+                var homeRepair = await _homeDbContext.HomeRepairs.ToListAsync();
 
-                return new Response<List<HomeRepair >>(homeRepair);
+                return new Response<List<HomeRepair>>(homeRepair);
             }
             catch (Exception ex)
             {
@@ -427,7 +421,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<List<Hotel>>> GetAllHotelAynce()
+        public async Task<Response<List<Hotel>>> GetAllHotelAynce()
         {
             try
             {
@@ -441,11 +435,11 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<List<TechnicalServices>>> GetAllTechnicalServicesAynce()
+        public async Task<Response<List<TechnicalServices>>> GetAllTechnicalServicesAynce()
         {
             try
             {
-                var technicalService  = await _homeDbContext.TechnicalServices.ToListAsync();
+                var technicalService = await _homeDbContext.TechnicalServices.ToListAsync();
 
                 return new Response<List<TechnicalServices>>(technicalService);
             }
@@ -455,7 +449,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id)
+        public async Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id)
         {
             try
             {
@@ -466,7 +460,7 @@ namespace Infrastructure.Service
                     return new Response<ConstructionMaterials>("Construction material not found.");
                 }
 
-                return new Response<ConstructionMaterials>(constructionMaterial); 
+                return new Response<ConstructionMaterials>(constructionMaterial);
             }
             catch (Exception ex)
             {
@@ -474,7 +468,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
+        public async Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
         {
             try
             {
@@ -493,7 +487,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<Home>> GetByIdHomeAynce(int Id)
+        public async Task<Response<Home>> GetByIdHomeAynce(int Id)
         {
             try
             {
@@ -512,7 +506,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id)
+        public async Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id)
         {
             try
             {
@@ -520,10 +514,10 @@ namespace Infrastructure.Service
 
                 if (homeBuild == null)
                 {
-                    return new Response<HomeBuild >(" Home Build  not found.");
+                    return new Response<HomeBuild>(" Home Build  not found.");
                 }
 
-                return new Response<HomeBuild >(homeBuild);
+                return new Response<HomeBuild>(homeBuild);
             }
             catch (Exception ex)
             {
@@ -531,11 +525,11 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeEquipment>> GetByIdHomeEquipmentAynce(int Id)
+        public async Task<Response<HomeEquipment>> GetByIdHomeEquipmentAynce(int Id)
         {
             try
             {
-                var homeEquipment  = await _homeDbContext.HomeEquipment.FindAsync(Id);
+                var homeEquipment = await _homeDbContext.HomeEquipment.FindAsync(Id);
 
                 if (homeEquipment == null)
                 {
@@ -550,7 +544,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRent>> GetByIdHomeRentAynce(int Id)
+        public async Task<Response<HomeRent>> GetByIdHomeRentAynce(int Id)
         {
             try
             {
@@ -561,7 +555,7 @@ namespace Infrastructure.Service
                     return new Response<HomeRent>(" Home Rent not found.");
                 }
 
-                return new Response<HomeRent >( homeRent);
+                return new Response<HomeRent>(homeRent);
             }
             catch (Exception ex)
             {
@@ -569,7 +563,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id)
+        public async Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id)
         {
             try
             {
@@ -588,11 +582,11 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<Hotel>> GetByIdHotelAynce(int Id)
+        public async Task<Response<Hotel>> GetByIdHotelAynce(int Id)
         {
             try
             {
-                var hotel  = await _homeDbContext.Hotels.FindAsync(Id);
+                var hotel = await _homeDbContext.Hotels.FindAsync(Id);
 
                 if (hotel == null)
                 {
@@ -607,9 +601,9 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<TechnicalServices>> GetByIdTechnicalServicesAynce(int Id)
+        public async Task<Response<TechnicalServices>> GetByIdTechnicalServicesAynce(int Id)
         {
-              try
+            try
             {
                 var technicalService = await _homeDbContext.TechnicalServices.FindAsync(Id);
 
@@ -626,13 +620,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
+        public async Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
         {
             try
             {
                 _homeDbContext.ConstructionMaterials.Update(constructionMaterials);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<ConstructionMaterials>(constructionMaterials); 
+                return new Response<ConstructionMaterials>(constructionMaterials);
             }
             catch (Exception ex)
             {
@@ -640,13 +634,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
+        public async Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
         {
             try
             {
                 _homeDbContext.HomeAppliances.Update(homeAppliance);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeAppliance>(homeAppliance); 
+                return new Response<HomeAppliance>(homeAppliance);
             }
             catch (Exception ex)
             {
@@ -654,13 +648,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<Home>> UpdateHomeAynce(Home home)
+        public async Task<Response<Home>> UpdateHomeAynce(Home home)
         {
             try
             {
                 _homeDbContext.Homes.Update(home);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<Home>(home); 
+                return new Response<Home>(home);
             }
             catch (Exception ex)
             {
@@ -668,13 +662,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
+        public async Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
         {
             try
             {
                 _homeDbContext.HomeBuilds.Update(homeBuild);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeBuild>(homeBuild); 
+                return new Response<HomeBuild>(homeBuild);
             }
             catch (Exception ex)
             {
@@ -682,13 +676,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment homeEquipment)
+        public async Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment homeEquipment)
         {
             try
             {
                 _homeDbContext.HomeEquipment.Update(homeEquipment);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeEquipment>(homeEquipment); 
+                return new Response<HomeEquipment>(homeEquipment);
             }
             catch (Exception ex)
             {
@@ -696,13 +690,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRent>> UpdateHomeRentAynce(HomeRent homeRent)
+        public async Task<Response<HomeRent>> UpdateHomeRentAynce(HomeRent homeRent)
         {
             try
             {
                 _homeDbContext.HomeRents.Update(homeRent);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeRent>(homeRent); 
+                return new Response<HomeRent>(homeRent);
             }
             catch (Exception ex)
             {
@@ -710,13 +704,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair)
+        public async Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair)
         {
             try
             {
                 _homeDbContext.HomeRepairs.Update(homeRepair);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeRepair>(homeRepair); 
+                return new Response<HomeRepair>(homeRepair);
             }
             catch (Exception ex)
             {
@@ -724,13 +718,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel)
+        public async Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel)
         {
             try
             {
                 _homeDbContext.Hotels.Update(hotel);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<Hotel>(hotel); 
+                return new Response<Hotel>(hotel);
             }
             catch (Exception ex)
             {
@@ -738,13 +732,13 @@ namespace Infrastructure.Service
             }
         }
 
-        public async  Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(TechnicalServices technicalServices)
+        public async Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(TechnicalServices technicalServices)
         {
             try
             {
                 _homeDbContext.TechnicalServices.Update(technicalServices);
                 await _homeDbContext.SaveChangesAsync();
-                return new Response<TechnicalServices>(technicalServices); 
+                return new Response<TechnicalServices>(technicalServices);
             }
             catch (Exception ex)
             {
