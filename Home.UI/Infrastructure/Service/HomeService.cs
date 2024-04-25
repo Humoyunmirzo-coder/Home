@@ -626,24 +626,60 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
+        public async  Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.ConstructionMaterials.Update(constructionMaterials);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<ConstructionMaterials>(constructionMaterials); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<ConstructionMaterials>("Failed to update construction material: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
+        public async  Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeAppliances.Update(homeAppliance);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeAppliance>(homeAppliance); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeAppliance>("Failed to update  home appliance: " + ex.Message);
+            }
         }
 
-        public Task<Response<Home>> UpdateHomeAynce(Home home)
+        public async  Task<Response<Home>> UpdateHomeAynce(Home home)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.Homes.Update(home);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Home>(home); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<Home>("Failed to update  Home: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
+        public async  Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeBuilds.Update(homeBuild);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeBuild>(homeBuild); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeBuild>("Failed to update home build : " + ex.Message);
+            }
         }
 
         public Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment homeEquipment)
