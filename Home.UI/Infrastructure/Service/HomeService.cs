@@ -455,49 +455,175 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id)
+        public async  Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var constructionMaterial = await _homeDbContext.ConstructionMaterials.FindAsync(Id);
+
+                if (constructionMaterial == null)
+                {
+                    return new Response<ConstructionMaterials>("Construction material not found.");
+                }
+
+                return new Response<ConstructionMaterials>(constructionMaterial); 
+            }
+            catch (Exception ex)
+            {
+                return new Response<ConstructionMaterials>("Failed to get construction material: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
+        public async  Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeAppliance = await _homeDbContext.HomeAppliances.FindAsync(Id);
+
+                if (homeAppliance == null)
+                {
+                    return new Response<HomeAppliance>(" Home appliance  not found.");
+                }
+
+                return new Response<HomeAppliance>(homeAppliance);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeAppliance>("Failed to get  Home Appliance : " + ex.Message);
+            }
         }
 
-        public Task<Response<Home>> GetByIdHomeAynce(int Id)
+        public async  Task<Response<Home>> GetByIdHomeAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var home = await _homeDbContext.Homes.FindAsync(Id);
+
+                if (home == null)
+                {
+                    return new Response<Home>("Home   not found.");
+                }
+
+                return new Response<Home>(home);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Home>("Failed to get home: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id)
+        public async  Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeBuild = await _homeDbContext.HomeBuilds.FindAsync(Id);
+
+                if (homeBuild == null)
+                {
+                    return new Response<HomeBuild >(" Home Build  not found.");
+                }
+
+                return new Response<HomeBuild >(homeBuild);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeBuild>("Failed to get  home build : " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeEquipment>> GetByIdHomeEquipmentAynce(int Id)
+        public async  Task<Response<HomeEquipment>> GetByIdHomeEquipmentAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeEquipment  = await _homeDbContext.HomeEquipment.FindAsync(Id);
+
+                if (homeEquipment == null)
+                {
+                    return new Response<HomeEquipment>(" Home Equipment  not found.");
+                }
+
+                return new Response<HomeEquipment>(homeEquipment);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeEquipment>("Failed to get  home Equipment: " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeRent>> GetByIdHomeRentAynce(int Id)
+        public async  Task<Response<HomeRent>> GetByIdHomeRentAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeRent = await _homeDbContext.HomeRents.FindAsync(Id);
+
+                if (homeRent == null)
+                {
+                    return new Response<HomeRent>(" Home Rent not found.");
+                }
+
+                return new Response<HomeRent >( homeRent);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRent>("Failed to get Home  Rent : " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id)
+        public async  Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeRepair = await _homeDbContext.HomeRepairs.FindAsync(Id);
+
+                if (homeRepair == null)
+                {
+                    return new Response<HomeRepair>(" Home Repair material not found.");
+                }
+
+                return new Response<HomeRepair>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to get home  repair : " + ex.Message);
+            }
         }
 
-        public Task<Response<Hotel>> GetByIdHotelAynce(int Id)
+        public async  Task<Response<Hotel>> GetByIdHotelAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var hotel  = await _homeDbContext.Hotels.FindAsync(Id);
+
+                if (hotel == null)
+                {
+                    return new Response<Hotel>("Hotel   not found.");
+                }
+
+                return new Response<Hotel>(hotel);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Hotel>("Failed to get Hotel: " + ex.Message);
+            }
         }
 
-        public Task<Response<TechnicalServices>> GetByIdTechnicalServicesAynce(int Id)
+        public async  Task<Response<TechnicalServices>> GetByIdTechnicalServicesAynce(int Id)
         {
-            throw new NotImplementedException();
+              try
+            {
+                var technicalService = await _homeDbContext.TechnicalServices.FindAsync(Id);
+
+                if (technicalService == null)
+                {
+                    return new Response<TechnicalServices>(" TechnicalServices material not found.");
+                }
+
+                return new Response<TechnicalServices>(technicalService);
+            }
+            catch (Exception ex)
+            {
+                return new Response<TechnicalServices>("Failed to get technical service material: " + ex.Message);
+            }
         }
 
         public Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
