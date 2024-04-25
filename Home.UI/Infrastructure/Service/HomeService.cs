@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Service
 {
@@ -328,19 +329,46 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
+        public  async  Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var constructionMaterials = await _homeDbContext.ConstructionMaterials.ToListAsync();
+
+                return new Response<List<ConstructionMaterials>>(constructionMaterials);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<ConstructionMaterials>>("Failed to get all construction materials: " + ex.Message);
+            } 
         }
 
-        public Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
+        public async  Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeAppliance = await _homeDbContext.HomeAppliances.ToListAsync();
+
+                return new Response<List<HomeAppliance>>(homeAppliance);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeAppliance>>("Failed to get all  home appliance: " + ex.Message);
+            }
         }
 
-        public Task<Response<List<Home>>> GetAllHomeAynce()
+        public async  Task<Response<List<Home>>> GetAllHomeAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var home = await _homeDbContext.Homes.ToListAsync();
+
+                return new Response<List<Home>>(home);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<Home>>("Failed to get all home : " + ex.Message);
+            }
         }
 
         public Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
