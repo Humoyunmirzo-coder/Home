@@ -1,4 +1,6 @@
-﻿using Infrastructure.DataAccess;
+﻿using Aplication.Service;
+using Infrastructure.DataAccess;
+using Infrastructure.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +16,7 @@ namespace Infrastructure
     {
         public static void AddServises ( this IServiceCollection services  , IConfiguration configuration )
         {
+            services.AddScoped<IHomeService, HomeService>();
             services.AddDbContext<HomeDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("ConnectionHome")));
         } 
