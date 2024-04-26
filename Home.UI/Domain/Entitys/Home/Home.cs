@@ -1,4 +1,5 @@
 ﻿using Domain.Entitys.Home.BaseEntitys;
+using Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,7 +16,7 @@ namespace Domain.Entitys.Home
         public string Discription { get; set; }
         public int YearBuilt { get; set; }
         public string HomeType { get; set; }
-        
-        
+
+    
     }
 }

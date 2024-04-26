@@ -44,9 +44,12 @@ namespace Home.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateHome([FromBody] Domain.Entitys.Home.Home home)
+        public  async Task<IActionResult> CreateHome([FromBody] Domain.Entitys.Home.Home home)
         {
+          // Domain.Entitys.Home.Home homes = await _homeService.CreateHomeAynce(home) { }
             var response = await _homeService.CreateHomeAynce(home);
+
+
             if (response.StatusCode == 200)
                 return Ok(response);
             return BadRequest(response);
