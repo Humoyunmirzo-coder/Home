@@ -6,7 +6,7 @@ using Domain.Entitys.Home;
 
 namespace Home.UI.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("/[controller]/[action]")]
     [ApiController]
     public class HomeController : ControllerBase
     {
