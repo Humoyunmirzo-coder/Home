@@ -17,9 +17,9 @@ namespace Home.UI.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetByIdHome(int id)
+        public async Task<IActionResult> GetByIdHomeRent(int Id)
         {
-            var response = await _homeService.GetByIdHomeAynce(id);
+            var response = await _homeService.GetByIdHomeRentAynce(Id);
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
