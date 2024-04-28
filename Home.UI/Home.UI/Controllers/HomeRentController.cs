@@ -24,6 +24,14 @@ namespace Home.UI.Controllers
                 return Ok(response);
             return NotFound(response);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAllHomesRent()
+        {
+            var response = await _homeService.GetAllHomeRentAynce();
+            if (response.StatusCode == 200)
+                return Ok(response);
+            return NotFound(response);
+        }   
 
 
     }
