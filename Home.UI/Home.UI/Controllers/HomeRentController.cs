@@ -1,10 +1,11 @@
 ﻿using Aplication.Service;
+using Domain.Entitys.Home;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Home.UI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/[controller]/[action]")]
     [ApiController]
     public class HomeRentController : ControllerBase
     {
@@ -31,8 +32,16 @@ namespace Home.UI.Controllers
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
-        }   
+        }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateHomeRent([FromBody] HomeRent homeRent)
+        {
+            var response = await _homeService.UpdateHomeRentAynce(homeRent);
+            if (response.StatusCode == 200)
+                return Ok(response);
+            return BadRequest(response);
+        }
 
     }
 }
