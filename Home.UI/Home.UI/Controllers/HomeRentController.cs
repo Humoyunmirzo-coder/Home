@@ -43,5 +43,15 @@ namespace Home.UI.Controllers
             return BadRequest(response);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateHomeRent([FromBody] HomeRent homeRent)
+        {
+            var response = await _homeService.CreateHomeRentAynce(homeRent);
+
+            if (response.StatusCode == 200)
+                return Ok(response);
+            return BadRequest(response);
+        }
+
     }
 }
