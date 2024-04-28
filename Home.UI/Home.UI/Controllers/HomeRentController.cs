@@ -53,5 +53,14 @@ namespace Home.UI.Controllers
             return BadRequest(response);
         }
 
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteHomeRent (int id)
+        {
+            var response = await _homeService.DeleteHomeRentAynce(id);
+            if (response.StatusCode == 200)
+                return Ok(response);
+            return BadRequest(response);
+        }
     }
 }
