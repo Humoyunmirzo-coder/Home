@@ -18,14 +18,6 @@ namespace Home.UI.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetByIdHome(int id)
-        {
-            var response = await _homeService.GetByIdHomeAynce(id);
-            if (response.StatusCode == 200)
-                return Ok(response);
-            return NotFound(response);
-        }
         [HttpGet]
         public async Task<IActionResult> GetAllHomes()
         {
@@ -34,6 +26,17 @@ namespace Home.UI.Controllers
                 return Ok(response);
             return NotFound(response);
         }
+
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdHome(int id)
+        {
+            var response = await _homeService.GetByIdHomeAynce(id);
+            if (response.StatusCode == 200)
+                return Ok(response);
+            return NotFound(response);
+        }
+    
         [HttpPut]
         public async Task<IActionResult> UpdateHome([FromBody] Domain.Entitys.Home.Home home)
         {

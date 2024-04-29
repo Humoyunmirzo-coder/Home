@@ -17,14 +17,6 @@ namespace Home.UI.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetByIdHomeRent(int Id)
-        {
-            var response = await _homeService.GetByIdHomeRentAynce(Id);
-            if (response.StatusCode == 200)
-                return Ok(response);
-            return NotFound(response);
-        }
         [HttpGet]
         public async Task<IActionResult> GetAllHomesRent()
         {
@@ -33,6 +25,16 @@ namespace Home.UI.Controllers
                 return Ok(response);
             return NotFound(response);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdHomeRent(int Id)
+        {
+            var response = await _homeService.GetByIdHomeRentAynce(Id);
+            if (response.StatusCode == 200)
+                return Ok(response);
+            return NotFound(response);
+        }
+   
 
         [HttpPut]
         public async Task<IActionResult> UpdateHomeRent([FromBody] HomeRent homeRent)
