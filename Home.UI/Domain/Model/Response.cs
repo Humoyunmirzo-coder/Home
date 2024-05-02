@@ -8,7 +8,7 @@ namespace Domain.Model
 {
     public class Response<T>
     {
-        public Response(string error, int statuscode = 400)
+        public Response(string error, int statuscode = 200)
         {
             Erors = error;
             StatusCode = statuscode;
