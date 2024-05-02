@@ -12,7 +12,7 @@ namespace Home.UI.Controllers
     {
         private readonly IHomeService  _homeService;
 
-        public HomeBuildController(IHomeService? homeService)
+        public HomeBuildController(IHomeService homeService)
         {
             _homeService = homeService;
 
