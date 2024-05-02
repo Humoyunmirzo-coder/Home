@@ -31,7 +31,7 @@ namespace Aplication.Service
         
         
         Task<Response<HomeBuild>> CreateHomeBuildAynce(HomeBuild  homeBuild);
-        Task<Response<HomeBuild>> DeleteHomeBuildAynce(int Id);
+        Task<Response<bool>> DeleteHomeBuildAynce(int Id);
         Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild  homeBuild);
         Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id);
         Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce();
