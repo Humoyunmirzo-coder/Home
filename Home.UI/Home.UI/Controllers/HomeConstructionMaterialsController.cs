@@ -7,11 +7,11 @@ namespace Home.UI.Controllers
 {
     [Route("/[controller]/[action]")]
     [ApiController]
-    public class ConstructionMaterialsController : ControllerBase
+    public class HomeConstructionMaterialsController : ControllerBase
     {
         private readonly IHomeService _homeService;
 
-        public ConstructionMaterialsController(IHomeService homeService)
+        public HomeConstructionMaterialsController(IHomeService homeService)
         {
             _homeService = homeService;
 

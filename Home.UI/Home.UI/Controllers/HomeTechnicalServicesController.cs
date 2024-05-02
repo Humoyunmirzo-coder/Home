@@ -8,11 +8,11 @@ namespace Home.UI.Controllers
 {
     [Route("/[controller]/[action]")]
     [ApiController]
-    public class TechnicalServicesController : ControllerBase
+    public class HomeTechnicalServicesController : ControllerBase
     {
         private readonly IHomeService _homeService;
 
-        public TechnicalServicesController(IHomeService homeService)
+        public HomeTechnicalServicesController(IHomeService homeService)
         {
             _homeService = homeService;
 
