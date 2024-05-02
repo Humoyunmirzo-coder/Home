@@ -11,9 +11,9 @@ namespace Home.UI.Controllers
     [ApiController]
     public class HotelController : ControllerBase
     {
-        private readonly IHomeService? _homeService;
+        private readonly IHomeService _homeService;
 
-        public HotelController(IHomeService? homeService)
+        public HotelController(IHomeService homeService)
         {
             _homeService = homeService;
 
@@ -47,7 +47,7 @@ namespace Home.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateHome([FromBody] Hotel Hotel)
+        public async Task<IActionResult> CreateHome([FromBody] Hotel Hotel
         {
             var response = await _homeService.CreateHotelAynce(Hotel);
 
