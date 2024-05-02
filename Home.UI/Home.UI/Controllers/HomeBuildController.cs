@@ -10,7 +10,7 @@ namespace Home.UI.Controllers
 
     public class HomeBuildController : ControllerBase
     {
-        private readonly IHomeService? _homeService;
+        private readonly IHomeService  _homeService;
 
         public HomeBuildController(IHomeService? homeService)
         {
