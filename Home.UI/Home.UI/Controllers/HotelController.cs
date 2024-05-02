@@ -47,7 +47,7 @@ namespace Home.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateHome([FromBody] Hotel Hotel
+        public async Task<IActionResult> CreateHome([FromBody] Hotel Hotel)
         {
             var response = await _homeService.CreateHotelAynce(Hotel);
 
