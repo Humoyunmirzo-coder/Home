@@ -10,7 +10,7 @@ namespace Home.UI.Controllers
     [ApiController]
     public class TechnicalServicesController : ControllerBase
     {
-        private readonly IHomeService? _homeService;
+        private readonly IHomeService _homeService;
 
         public TechnicalServicesController(IHomeService? homeService)
         {

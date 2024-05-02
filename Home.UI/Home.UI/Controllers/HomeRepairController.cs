@@ -10,9 +10,9 @@ namespace Home.UI.Controllers
     [ApiController]
     public class HomeRepairController : ControllerBase
     {
-        private readonly IHomeService? _homeService;
+        private readonly IHomeService _homeService;
 
-        public HomeRepairController(IHomeService? homeService)
+        public HomeRepairController(IHomeService homeService)
         {
             _homeService = homeService;
 
