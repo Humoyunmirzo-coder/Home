@@ -203,9 +203,6 @@ namespace Infrastructure.Service
             }
         }
 
-        /// true + true = true 
-        /// true +false = true 
-        /// false + false = false 
         public async Task<Response<bool>> DeleteHomeBuildAynce(int Id)
         {
             var homebuild = await _homeDbContext.HomeBuilds.FindAsync(Id);
