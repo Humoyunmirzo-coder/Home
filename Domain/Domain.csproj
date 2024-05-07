@@ -12,4 +12,9 @@
     <None Remove="Models\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EntityDto\HomeServiceDto\" />
+    <Folder Include="EntityDto\HomesparePartDto\" />
+  </ItemGroup>
+
 </Project>
