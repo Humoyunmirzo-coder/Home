@@ -14,12 +14,6 @@ namespace Aplication.Service
         Task<Response<List<Home>>> GetAllHomeAynce();
 
 
-        Task<Response<HomeRent>> CreateHomeRentAynce(HomeRent homeRent);
-        Task<Response<HomeRent>> DeleteHomeRentAynce(int Id);
-        Task<Response<HomeRent>> UpdateHomeRentAynce(HomeRent homeRent);
-        Task<Response<HomeRent>> GetByIdHomeRentAynce(int Id);
-        Task<Response<List<HomeRent>>> GetAllHomeRentAynce();
-
 
          Task<Response<Hotel>> CreateHotelAynce(Hotel hotel);
         Task<Response<Hotel>> DeleteHotelAynce(int Id);
