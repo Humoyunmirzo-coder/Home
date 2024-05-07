@@ -12,56 +12,5 @@ namespace Aplication.Service
         Task<Response<Home>> UpdateHomeAynce(Home home);
         Task<Response<Home>> GetByIdHomeAynce(int Id);
         Task<Response<List<Home>>> GetAllHomeAynce();
-
-
-
-        
-        
-        
-        
-        
-        Task<Response<HomeBuild>> CreateHomeBuildAynce(HomeBuild  homeBuild);
-        Task<Response<bool>> DeleteHomeBuildAynce(int Id);
-        Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild  homeBuild);
-        Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id);
-        Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce();
-               
-
-        Task<Response<HomeRepair>> CreateHomeRepairAynce(HomeRepair homeRepair);
-        Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id);
-        Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair);
-        Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id);
-        Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce();
-        
-
-        Task<Response<TechnicalServices>> CreateTechnicalServicesAynce(TechnicalServices technicalServices);
-        Task<Response<TechnicalServices>> DeleteTechnicalServicesAynce(int Id);
-        Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(TechnicalServices technicalServices);
-        Task<Response<TechnicalServices>> GetByIdTechnicalServicesAynce(int Id);
-        Task<Response<List<TechnicalServices>>> GetAllTechnicalServicesAynce();
-
-        
-        Task<Response<ConstructionMaterials>> CreateConstructionMaterialsAynce(ConstructionMaterials  constructionMaterials);
-        Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id);
-        Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials  constructionMaterials);
-        Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id);
-        Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce();
-
-            Task<Response<HomeAppliance>> CreateHomeApplianceAynce(HomeAppliance  homeAppliance);
-        Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id);
-        Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance);
-        Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id);
-        Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce();
-
-        
-        Task<Response<HomeEquipment>> CreateHomeEquipmentAynce(HomeEquipment homeEquipment);
-        Task<Response<HomeEquipment>> DeleteHomeEquipmentAynce(int Id);
-        Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment  homeEquipment);
-        Task<Response<HomeEquipment>> GetByIdHomeEquipmentAynce(int Id);
-        Task<Response<List<HomeEquipment>>> GetAllHomeEquipmentAynce();
-
-
-
-
     }
 }
