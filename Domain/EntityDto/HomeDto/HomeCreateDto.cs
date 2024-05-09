@@ -18,6 +18,7 @@ namespace Domain.EntityDto.HomeDto
         public ToshkentEnum AddressDistrict { get; set; }
         public ProvinceEnum AddressProvince { get; set; }
         public string InformationUniversal { get; set; }
+
         public string PhoneNumbers { get; set; }   /// 998900220407   
     }
 }

@@ -15,6 +15,7 @@
   <ItemGroup>
     <Folder Include="EntityDto\HomeServiceDto\" />
     <Folder Include="EntityDto\HomesparePartDto\" />
+    <Folder Include="EntityDto\HomeRentDto\" />
   </ItemGroup>
 
 </Project>
