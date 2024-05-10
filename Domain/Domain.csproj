@@ -13,9 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EntityDto\HomeServiceDto\" />
-    <Folder Include="EntityDto\HomesparePartDto\" />
     <Folder Include="EntityDto\HomeRentDto\" />
+    <Folder Include="EntityDto\HotelDto\" />
+    <Folder Include="EntityDto\HomeBuild\" />
+    <Folder Include="EntityDto\HomeRepair\" />
+    <Folder Include="EntityDto\TechnicalServices\" />
   </ItemGroup>
 
 </Project>
