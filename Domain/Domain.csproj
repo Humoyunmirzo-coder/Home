@@ -15,9 +15,12 @@
   <ItemGroup>
     <Folder Include="EntityDto\HomeRentDto\" />
     <Folder Include="EntityDto\HotelDto\" />
-    <Folder Include="EntityDto\HomeBuild\" />
-    <Folder Include="EntityDto\HomeRepair\" />
-    <Folder Include="EntityDto\TechnicalServices\" />
+    <Folder Include="EntityDto\HomeBuildDto\" />
+    <Folder Include="EntityDto\HomeRepairDto\" />
+    <Folder Include="EntityDto\ConstructionMaterialsDto\" />
+    <Folder Include="EntityDto\HomeApplianceDto\" />
+    <Folder Include="EntityDto\HomeEquipmentDto\" />
+    <Folder Include="EntityDto\TechnicalServicesDto\" />
   </ItemGroup>
 
 </Project>
