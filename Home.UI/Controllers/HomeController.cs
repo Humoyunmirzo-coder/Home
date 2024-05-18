@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Domain.Entitys.Home.BaseEntitys;
 using Domain.Entitys.Home;
+using Domain.EntityDto.HomeDto;
 
 namespace Home.UI.Controllers
 {
@@ -16,9 +17,6 @@ namespace Home.UI.Controllers
         {
             _homeService = homeService;
         }
-
-
-
 
         [HttpGet]
         public async Task<IActionResult> GetAllHomes()
@@ -49,7 +47,7 @@ namespace Home.UI.Controllers
         }
 
         [HttpPost]
-        public  async Task<IActionResult> CreateHome([FromBody] Domain.Entitys.Home.Home home)
+        public  async Task<IActionResult> CreateHome([FromBody] HomeCreateDto home)
         {
             var response = await _homeService.CreateHomeAynce(home);
 
