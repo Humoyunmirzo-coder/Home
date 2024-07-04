@@ -10,17 +10,17 @@ namespace Home.UI.Controllers
     [ApiController]
     public class HomeRepairController : ControllerBase
     {
-        private readonly IHomeService _homeService;
+        private readonly IHomeRepair _homeRepair;
 
-        public HomeRepairController(IHomeService homeService)
+        public HomeRepairController(IHomeRepair homeRepair)
         {
-            _homeService = homeService;
-
+            _homeRepair = homeRepair;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllHomeRepair()
         {
-            var response = await _homeService.GetAllHomeRepairAynce();
+            var response = await _homeRepair.GetAllHomeRepairAynce();
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
@@ -30,7 +30,7 @@ namespace Home.UI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdHomeRepair(int id)
         {
-            var response = await _homeService.GetByIdHomeRepairAynce(id);
+            var response = await _homeRepair.GetByIdHomeRepairAynce(id);
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
@@ -39,7 +39,7 @@ namespace Home.UI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateHome([FromBody] HomeRepair HomeRepair)
         {
-            var response = await _homeService.UpdateHomeRepairAynce(HomeRepair);
+            var response = await _homeRepair.UpdateHomeRepairAynce(HomeRepair);
             if (response.StatusCode == 200)
                 return Ok(response);
             return BadRequest(response);
@@ -48,7 +48,7 @@ namespace Home.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateHome([FromBody] HomeRepair HomeRepair)
         {
-            var response = await _homeService.CreateHomeRepairAynce(HomeRepair);
+            var response = await _homeRepair.CreateHomeRepairAynce(HomeRepair);
 
             if (response.StatusCode == 200)
                 return Ok(response);
@@ -59,7 +59,7 @@ namespace Home.UI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHome(int id)
         {
-            var response = await _homeService.DeleteHomeRepairAynce(id);
+            var response = await _homeRepair.DeleteHomeRepairAynce(id);
             if (response.StatusCode == 200)
                 return Ok(response);
             return BadRequest(response);

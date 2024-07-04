@@ -11,17 +11,17 @@ namespace Home.UI.Controllers
     [ApiController]
     public class HotelController : ControllerBase
     {
-        private readonly IHomeService _homeService;
+        private readonly IHotelService _hotelService;
 
-        public HotelController(IHomeService homeService)
+        public HotelController(IHotelService hotelService)
         {
-            _homeService = homeService;
-
+            _hotelService = hotelService;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllHotel()
         {
-            var response = await _homeService.GetAllHotelAynce();
+            var response = await _hotelService.GetAllHotelAynce();
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
@@ -31,7 +31,7 @@ namespace Home.UI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdHotel(int id)
         {
-            var response = await _homeService.GetByIdHotelAynce(id);
+            var response = await _hotelService.GetByIdHotelAynce(id);
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
@@ -40,7 +40,7 @@ namespace Home.UI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateHome([FromBody] Hotel Hotel)
         {
-            var response = await _homeService.UpdateHotelAynce(Hotel);
+            var response = await _hotelService.UpdateHotelAynce(Hotel);
             if (response.StatusCode == 200)
                 return Ok(response);
             return BadRequest(response);
@@ -49,7 +49,7 @@ namespace Home.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateHome([FromBody] Hotel Hotel)
         {
-            var response = await _homeService.CreateHotelAynce(Hotel);
+            var response = await _hotelService.CreateHotelAynce(Hotel);
 
             if (response.StatusCode == 200)
                 return Ok(response);
@@ -60,7 +60,7 @@ namespace Home.UI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHome(int id)
         {
-            var response = await _homeService.DeleteHotelAynce(id);
+            var response = await _hotelService.DeleteHotelAynce(id);
             if (response.StatusCode == 200)
                 return Ok(response);
             return BadRequest(response);
