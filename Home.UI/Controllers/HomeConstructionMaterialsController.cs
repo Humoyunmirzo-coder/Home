@@ -9,17 +9,18 @@ namespace Home.UI.Controllers
     [ApiController]
     public class HomeConstructionMaterialsController : ControllerBase
     {
-        private readonly IHomeService _homeService;
 
-        public HomeConstructionMaterialsController(IHomeService homeService)
+       private readonly IConstructionMaterials _constructionMaterials;
+
+        public HomeConstructionMaterialsController(IConstructionMaterials constructionMaterials)
         {
-            _homeService = homeService;
-
+            _constructionMaterials = constructionMaterials;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllConstructionMaterials()
         {
-            var response = await _homeService.GetAllConstructionMaterialsAynce();
+            var response = await _constructionMaterials.GetAllConstructionMaterialsAynce();
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
@@ -29,7 +30,7 @@ namespace Home.UI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdConstructionMaterials(int id)
         {
-            var response = await _homeService.GetByIdConstructionMaterialsAynce(id);
+            var response = await _constructionMaterials.GetByIdConstructionMaterialsAynce(id);
             if (response.StatusCode == 200)
                 return Ok(response);
             return NotFound(response);
@@ -38,7 +39,7 @@ namespace Home.UI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateHome([FromBody] ConstructionMaterials ConstructionMaterials)
         {
-            var response = await _homeService.UpdateConstructionMaterialsAynce(ConstructionMaterials);
+            var response = await _constructionMaterials.UpdateConstructionMaterialsAynce(ConstructionMaterials);
             if (response.StatusCode == 200)
                 return Ok(response);
             return BadRequest(response);
@@ -47,7 +48,7 @@ namespace Home.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateHome([FromBody] ConstructionMaterials ConstructionMaterials)
         {
-            var response = await _homeService.CreateConstructionMaterialsAynce(ConstructionMaterials);
+            var response = await _constructionMaterials.CreateConstructionMaterialsAynce(ConstructionMaterials);
 
             if (response.StatusCode == 200)
                 return Ok(response);
@@ -58,7 +59,7 @@ namespace Home.UI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHome(int id)
         {
-            var response = await _homeService.DeleteConstructionMaterialsAynce(id);
+            var response = await _constructionMaterials.DeleteConstructionMaterialsAynce(id);
             if (response.StatusCode == 200)
                 return Ok(response);
             return BadRequest(response);

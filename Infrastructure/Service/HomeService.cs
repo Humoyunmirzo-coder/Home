@@ -1,4 +1,5 @@
 ﻿using Aplication.Service;
+using Domain.EntityDto.HomeDto;
 using Domain.Entitys.Home;
 using Domain.Entitys.Home.Services;
 using Domain.Entitys.Home.SpareParts;
@@ -58,6 +59,11 @@ namespace Infrastructure.Service
             {
                 return new Response<Home>("Failed to create home: " + ex.Message);
             }
+        }
+
+        public Task<Response<HomeDtoBase>> CreateHomeAynce(HomeCreateDto home)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Response<HomeBuild>> CreateHomeBuildAynce(HomeBuild homeBuild)
