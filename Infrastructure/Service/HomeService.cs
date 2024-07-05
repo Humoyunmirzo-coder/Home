@@ -66,19 +66,7 @@ namespace Infrastructure.Service
             throw new NotImplementedException();
         }
 
-        public async Task<Response<HomeBuild>> CreateHomeBuildAynce(HomeBuild homeBuild)
-        {
-            try
-            {
-                await _homeDbContext.HomeBuilds.AddAsync(homeBuild);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeBuild>(homeBuild);
-            }
-            catch (Exception ex)
-            {
-                return new Response<HomeBuild>("Failed to create homeBuild: " + ex.Message);
-            }
-        }
+
 
         public async Task<Response<HomeEquipment>> CreateHomeEquipmentAynce(HomeEquipment homeEquipment)
         {
