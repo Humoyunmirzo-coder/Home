@@ -14,11 +14,14 @@ namespace Infrastructure
 {
     public  static  class ConfigureService
     {
+     
         public static void AddServises ( this IServiceCollection services  , IConfiguration configuration )
         {
             services.AddScoped<IHomeService, HomeService>();
             services.AddDbContext<HomeDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("ConnectionHome")));
-        } 
+
+        }
+     
     }
 }
