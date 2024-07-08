@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Service
 {
-    public  class HomeAppliance 
+    public  class HomeApplianceService
     {
     }
 }
