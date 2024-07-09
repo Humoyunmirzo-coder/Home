@@ -2,6 +2,7 @@
 using Domain.Entitys.Home.Services;
 using Domain.Model;
 using Infrastructure.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,9 +51,18 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
+        public async Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeBuild = await _homeDbContext.HomeBuilds.ToListAsync();
+
+                return new Response<List<HomeBuild>>(homeBuild);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeBuild>>("Failed to get all home build: " + ex.Message);
+            }
         }
 
         public Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id)

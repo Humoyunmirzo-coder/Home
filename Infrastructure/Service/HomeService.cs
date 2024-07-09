@@ -346,19 +346,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<List<HomeBuild>>> GetAllHomeBuildAynce()
-        {
-            try
-            {
-                var homeBuild = await _homeDbContext.HomeBuilds.ToListAsync();
-
-                return new Response<List<HomeBuild>>(homeBuild);
-            }
-            catch (Exception ex)
-            {
-                return new Response<List<HomeBuild>>("Failed to get all home build: " + ex.Message);
-            }
-        }
+  
 
         public async Task<Response<List<HomeEquipment>>> GetAllHomeEquipmentAynce()
         {
