@@ -197,25 +197,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<bool>> DeleteHomeBuildAynce(int Id)
-        {
-            var homebuild = await _homeDbContext.HomeBuilds.FindAsync(Id);
-            if (homebuild == null)
-            {
-                return new Response<bool>( "Home build not found.");
-            }
-
-            try
-            {
-                _homeDbContext.HomeBuilds.Remove(homebuild);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<bool>("Home build deleted successfully.");
-            }
-            catch (Exception ex)
-            {
-                return new Response<bool>( "Failed to delete Home build: " + ex.Message);
-            }
-        }
+      
 
 
 
