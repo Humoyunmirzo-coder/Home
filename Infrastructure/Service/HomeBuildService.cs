@@ -85,9 +85,18 @@ namespace Infrastructure.Service
         }
 
 
-        public Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
+        public async Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeBuilds.Update(homeBuild);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeBuild>(homeBuild);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeBuild>("Failed to update home build : " + ex.Message);
+            }
         }
     }
 }

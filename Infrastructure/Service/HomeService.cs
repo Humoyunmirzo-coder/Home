@@ -613,19 +613,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
-        {
-            try
-            {
-                _homeDbContext.HomeBuilds.Update(homeBuild);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeBuild>(homeBuild);
-            }
-            catch (Exception ex)
-            {
-                return new Response<HomeBuild>("Failed to update home build : " + ex.Message);
-            }
-        }
+       
 
         public async Task<Response<HomeEquipment>> UpdateHomeEquipmentAynce(HomeEquipment homeEquipment)
         {
