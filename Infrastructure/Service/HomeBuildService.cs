@@ -65,10 +65,25 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id)
+        public async Task<Response<HomeBuild>> GetByIdHomeBuildAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeBuild = await _homeDbContext.HomeBuilds.FindAsync(Id);
+
+                if (homeBuild == null)
+                {
+                    return new Response<HomeBuild>(" Home Build  not found.");
+                }
+
+                return new Response<HomeBuild>(homeBuild);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeBuild>("Failed to get  home build : " + ex.Message);
+            }
         }
+
 
         public Task<Response<HomeBuild>> UpdateHomeBuildAynce(HomeBuild homeBuild)
         {
