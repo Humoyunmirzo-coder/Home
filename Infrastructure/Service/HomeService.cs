@@ -33,19 +33,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<HomeAppliance>> CreateHomeApplianceAynce(HomeAppliance homeAppliance)
-        {
-            try
-            {
-                await _homeDbContext.HomeAppliances.AddAsync(homeAppliance);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeAppliance>(homeAppliance);
-            }
-            catch (Exception ex)
-            {
-                return new Response<HomeAppliance>("Failed to create  homeAppliance: " + ex.Message);
-            }
-        }
+     
 
         public async Task<Response<Home>> CreateHomeAynce(Home home)
         {
@@ -196,11 +184,6 @@ namespace Infrastructure.Service
                 return new Response<Home>("Failed to delete  Home: " + ex.Message);
             }
         }
-
-      
-
-
-
 
      
 
