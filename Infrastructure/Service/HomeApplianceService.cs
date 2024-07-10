@@ -86,9 +86,18 @@ namespace Infrastructure.Service
         }
 
 
-        public Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
+        public async Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeAppliances.Update(homeAppliance);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeAppliance>(homeAppliance);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeAppliance>("Failed to update  home appliance: " + ex.Message);
+            }
         }
     }
 }

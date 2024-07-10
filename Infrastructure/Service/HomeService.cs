@@ -520,19 +520,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
-        {
-            try
-            {
-                _homeDbContext.HomeAppliances.Update(homeAppliance);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeAppliance>(homeAppliance);
-            }
-            catch (Exception ex)
-            {
-                return new Response<HomeAppliance>("Failed to update  home appliance: " + ex.Message);
-            }
-        }
+  
 
         public async Task<Response<Home>> UpdateHomeAynce(Home home)
         {
