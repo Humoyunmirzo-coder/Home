@@ -32,9 +32,24 @@ namespace Infrastructure.Service
                 return new Response<HomeAppliance>("Failed to create  homeAppliance: " + ex.Message);
             }
         }
-        public Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id)
+        public async Task<Response<HomeAppliance>> DeleteHomeApplianceAynce(int Id)
         {
-            throw new NotImplementedException();
+            var homeAppliance = await _homeDbContext.HomeAppliances.FindAsync(Id);
+            if (homeAppliance == null)
+            {
+                return new Response<HomeAppliance>("Home  Appliance not found.");
+            }
+
+            try
+            {
+                _homeDbContext.HomeAppliances.Remove(homeAppliance);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeAppliance>(homeAppliance);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeAppliance>("Failed to delete Home Appliance: " + ex.Message);
+            }
         }
 
         public Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
