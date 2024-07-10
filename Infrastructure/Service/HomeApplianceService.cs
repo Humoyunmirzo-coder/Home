@@ -66,10 +66,25 @@ namespace Infrastructure.Service
                 return new Response<List<HomeAppliance>>("Failed to get all  home appliance: " + ex.Message);
             }
         }
-        public Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
+        public async Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeAppliance = await _homeDbContext.HomeAppliances.FindAsync(Id);
+
+                if (homeAppliance == null)
+                {
+                    return new Response<HomeAppliance>(" Home appliance  not found.");
+                }
+
+                return new Response<HomeAppliance>(homeAppliance);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeAppliance>("Failed to get  Home Appliance : " + ex.Message);
+            }
         }
+
 
         public Task<Response<HomeAppliance>> UpdateHomeApplianceAynce(HomeAppliance homeAppliance)
         {

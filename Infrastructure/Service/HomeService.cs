@@ -390,25 +390,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
-        {
-            try
-            {
-                var homeAppliance = await _homeDbContext.HomeAppliances.FindAsync(Id);
-
-                if (homeAppliance == null)
-                {
-                    return new Response<HomeAppliance>(" Home appliance  not found.");
-                }
-
-                return new Response<HomeAppliance>(homeAppliance);
-            }
-            catch (Exception ex)
-            {
-                return new Response<HomeAppliance>("Failed to get  Home Appliance : " + ex.Message);
-            }
-        }
-
+        
         public async Task<Response<Home>> GetByIdHomeAynce(int Id)
         {
             try
