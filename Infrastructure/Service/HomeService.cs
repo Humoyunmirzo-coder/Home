@@ -283,19 +283,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
-        {
-            try
-            {
-                var homeAppliance = await _homeDbContext.HomeAppliances.ToListAsync();
-
-                return new Response<List<HomeAppliance>>(homeAppliance);
-            }
-            catch (Exception ex)
-            {
-                return new Response<List<HomeAppliance>>("Failed to get all  home appliance: " + ex.Message);
-            }
-        }
+       
 
         public async Task<Response<List<Home>>> GetAllHomeAynce()
         {

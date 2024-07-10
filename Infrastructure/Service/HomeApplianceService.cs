@@ -2,6 +2,7 @@
 using Domain.Entitys.Home.SpareParts;
 using Domain.Model;
 using Infrastructure.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,11 +53,19 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
+        public async Task<Response<List<HomeAppliance>>> GetAllHomeApplianceAynce()
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var homeAppliance = await _homeDbContext.HomeAppliances.ToListAsync();
 
+                return new Response<List<HomeAppliance>>(homeAppliance);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeAppliance>>("Failed to get all  home appliance: " + ex.Message);
+            }
+        }
         public Task<Response<HomeAppliance>> GetByIdHomeApplianceAynce(int Id)
         {
             throw new NotImplementedException();
