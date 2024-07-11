@@ -196,26 +196,6 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
-        {
-            var homeRepair = await _homeDbContext.HomeRepairs.FindAsync(Id);
-            if (homeRepair == null)
-            {
-                return new Response<HomeRepair>("home Repair material not found.");
-            }
-
-            try
-            {
-                _homeDbContext.HomeRepairs.Remove(homeRepair);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeRepair>(homeRepair);
-            }
-            catch (Exception ex)
-            {
-                return new Response<HomeRepair>("Failed to delete  home Repair : " + ex.Message);
-            }
-        }
-
         public async Task<Response<Hotel>> DeleteHotelAynce(int Id)
         {
             var Hotel = await _homeDbContext.Hotels.FindAsync(Id);

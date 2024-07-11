@@ -33,10 +33,27 @@ namespace Infrastructure.Service
                 return new Response<HomeRepair>("Failed to create homeRepair: " + ex.Message);
             }
         }
-        public Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
+
+        public async Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
         {
-            throw new NotImplementedException();
+            var homeRepair = await _homeDbContext.HomeRepairs.FindAsync(Id);
+            if (homeRepair == null)
+            {
+                return new Response<HomeRepair>("home Repair material not found.");
+            }
+
+            try
+            {
+                _homeDbContext.HomeRepairs.Remove(homeRepair);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRepair>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to delete  home Repair : " + ex.Message);
+            }
         }
+
 
         public Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
         {
