@@ -70,14 +70,38 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id)
+        public async Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeRepair = await _homeDbContext.HomeRepairs.FindAsync(Id);
+
+                if (homeRepair == null)
+                {
+                    return new Response<HomeRepair>(" Home Repair material not found.");
+                }
+
+                return new Response<HomeRepair>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to get home  repair : " + ex.Message);
+            }
         }
 
-        public Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair)
+        public async Task<Response<HomeRepair>> UpdateHomeRepairAynce(HomeRepair homeRepair)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _homeDbContext.HomeRepairs.Update(homeRepair);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRepair>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to update home  repair: " + ex.Message);
+            }
         }
+
     }
 }
