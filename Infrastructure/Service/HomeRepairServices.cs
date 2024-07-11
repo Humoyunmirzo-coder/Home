@@ -2,6 +2,7 @@
 using Domain.Entitys.Home.Services;
 using Domain.Model;
 using Infrastructure.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,9 +56,18 @@ namespace Infrastructure.Service
         }
 
 
-        public Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
+        public async Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var homeRepair = await _homeDbContext.HomeRepairs.ToListAsync();
+
+                return new Response<List<HomeRepair>>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<HomeRepair>>("Failed to get all home Repair : " + ex.Message);
+            }
         }
 
         public Task<Response<HomeRepair>> GetByIdHomeRepairAynce(int Id)

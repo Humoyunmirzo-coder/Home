@@ -296,19 +296,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<List<HomeRepair>>> GetAllHomeRepairAynce()
-        {
-            try
-            {
-                var homeRepair = await _homeDbContext.HomeRepairs.ToListAsync();
-
-                return new Response<List<HomeRepair>>(homeRepair);
-            }
-            catch (Exception ex)
-            {
-                return new Response<List<HomeRepair>>("Failed to get all home Repair : " + ex.Message);
-            }
-        }
+        
 
         public async Task<Response<List<Hotel>>> GetAllHotelAynce()
         {
