@@ -1,6 +1,7 @@
 ﻿using Aplication.Service;
 using Domain.Entitys.Home.Services;
 using Domain.Model;
+using Infrastructure.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,27 @@ namespace Infrastructure.Service
 {
     public class HomeRepairServices : IHomeRepair
     {
-        public Task<Response<HomeRepair>> CreateHomeRepairAynce(HomeRepair homeRepair)
+        private readonly HomeDbContext _homeDbContext;
+
+        public HomeRepairServices(HomeDbContext homeDbContext)
         {
-            throw new NotImplementedException();
+            _homeDbContext = homeDbContext;
         }
 
+
+        public async Task<Response<HomeRepair>> CreateHomeRepairAynce(HomeRepair homeRepair)
+        {
+            try
+            {
+                await _homeDbContext.HomeRepairs.AddAsync(homeRepair);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<HomeRepair>(homeRepair);
+            }
+            catch (Exception ex)
+            {
+                return new Response<HomeRepair>("Failed to create homeRepair: " + ex.Message);
+            }
+        }
         public Task<Response<HomeRepair>> DeleteHomeRepairAynce(int Id)
         {
             throw new NotImplementedException();

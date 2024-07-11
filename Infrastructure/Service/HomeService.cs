@@ -84,19 +84,6 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<HomeRepair>> CreateHomeRepairAynce(HomeRepair homeRepair)
-        {
-            try
-            {
-                await _homeDbContext.HomeRepairs.AddAsync(homeRepair);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<HomeRepair>(homeRepair);
-            }             
-            catch (Exception ex)
-            {
-                return new Response<HomeRepair>("Failed to create homeRepair: " + ex.Message);
-            }
-        }
 
         public async Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
         {
