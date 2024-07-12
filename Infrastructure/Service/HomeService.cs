@@ -19,19 +19,7 @@ namespace Infrastructure.Service
             _homeDbContext = homeDbContext;
         }
 
-        public async Task<Response<ConstructionMaterials>> CreateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
-        {
-            try
-            {
-                await _homeDbContext.ConstructionMaterials.AddAsync(constructionMaterials);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<ConstructionMaterials>(constructionMaterials);
-            }
-            catch (Exception ex)
-            {
-                return new Response<ConstructionMaterials>("Failed to create construction material: " + ex.Message);
-            }
-        }
+
 
      
 
