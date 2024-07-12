@@ -283,25 +283,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id)
-        {
-            try
-            {
-                var constructionMaterial = await _homeDbContext.ConstructionMaterials.FindAsync(Id);
-
-                if (constructionMaterial == null)
-                {
-                    return new Response<ConstructionMaterials>("Construction material not found.");
-                }
-
-                return new Response<ConstructionMaterials>(constructionMaterial);
-            }
-            catch (Exception ex)
-            {
-                return new Response<ConstructionMaterials>("Failed to get construction material: " + ex.Message);
-            }
-        }
-
+      
         
         public async Task<Response<Home>> GetByIdHomeAynce(int Id)
         {
@@ -401,20 +383,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<ConstructionMaterials>> UpdateConstructionMaterialsAynce(ConstructionMaterials constructionMaterials)
-        {
-            try
-            {
-                _homeDbContext.ConstructionMaterials.Update(constructionMaterials);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<ConstructionMaterials>(constructionMaterials);
-            }
-            catch (Exception ex)
-            {
-                return new Response<ConstructionMaterials>("Failed to update construction material: " + ex.Message);
-            }
-        }
-
+     
   
 
         public async Task<Response<Home>> UpdateHomeAynce(Home home)
