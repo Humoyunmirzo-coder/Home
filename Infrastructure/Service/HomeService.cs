@@ -205,19 +205,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
-        {
-            try
-            {
-                var constructionMaterials = await _homeDbContext.ConstructionMaterials.ToListAsync();
-
-                return new Response<List<ConstructionMaterials>>(constructionMaterials);
-            }
-            catch (Exception ex)
-            {
-                return new Response<List<ConstructionMaterials>>("Failed to get all construction materials: " + ex.Message);
-            }
-        }
+        
 
        
 

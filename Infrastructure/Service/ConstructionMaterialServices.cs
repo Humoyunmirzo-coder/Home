@@ -2,6 +2,7 @@
 using Domain.Entitys.Home.SpareParts;
 using Domain.Model;
 using Infrastructure.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,10 +54,18 @@ namespace Infrastructure.Service
             }
         }
 
-
-        public Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
+        public async Task<Response<List<ConstructionMaterials>>> GetAllConstructionMaterialsAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var constructionMaterials = await _homeDbContext.ConstructionMaterials.ToListAsync();
+
+                return new Response<List<ConstructionMaterials>>(constructionMaterials);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<ConstructionMaterials>>("Failed to get all construction materials: " + ex.Message);
+            }
         }
 
         public Task<Response<ConstructionMaterials>> GetByIdConstructionMaterialsAynce(int Id)
