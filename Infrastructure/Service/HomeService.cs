@@ -101,26 +101,7 @@ namespace Infrastructure.Service
             }
         }
 
-        public async Task<Response<ConstructionMaterials>> DeleteConstructionMaterialsAynce(int Id)
-        {
-            var constructionMaterial = await _homeDbContext.ConstructionMaterials.FindAsync(Id);
-            if (constructionMaterial == null)
-            {
-                return new Response<ConstructionMaterials>("Construction material not found.");
-            }
-
-            try
-            {
-                _homeDbContext.ConstructionMaterials.Remove(constructionMaterial);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<ConstructionMaterials>(constructionMaterial);
-            }
-            catch (Exception ex)
-            {
-                return new Response<ConstructionMaterials>("Failed to delete construction material: " + ex.Message);
-            }
-        }
-
+      
       
 
         public async Task<Response<Home>> DeleteHomeAynce(int Id)
