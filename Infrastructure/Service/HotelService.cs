@@ -11,6 +11,13 @@ namespace Infrastructure.Service
 {
     public class HotelService : IHotelService
     {
+        private readonly IHotelService _service;
+
+        public HotelService(IHotelService service)
+        {
+            _service = service;
+        }
+
         public Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
         {
             throw new NotImplementedException();
