@@ -1,6 +1,7 @@
 ﻿using Aplication.Service;
 using Domain.Entitys.Home;
 using Domain.Model;
+using Infrastructure.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,22 @@ namespace Infrastructure.Service
 {
     public class HotelService : IHotelService
     {
-        private readonly IHotelService _service;
+        private readonly HomeDbContext _homeDbContext;
 
-        public HotelService(IHotelService service)
+        public async Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
         {
-            _service = service;
+            try
+            {
+                await _homeDbContext.Hotels.AddAsync(hotel);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Hotel>(hotel);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Hotel>("Failed to create hotel: " + ex.Message);
+            }
         }
 
-        public Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<Response<Hotel>> DeleteHotelAynce(int Id)
         {

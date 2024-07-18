@@ -73,20 +73,7 @@ namespace Infrastructure.Service
         }
 
 
-        public async Task<Response<Hotel>> CreateHotelAynce(Hotel hotel)
-        {
-            try
-            {
-                await _homeDbContext.Hotels.AddAsync(hotel);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<Hotel>(hotel);
-            }
-            catch (Exception ex)
-            {
-                return new Response<Hotel>("Failed to create hotel: " + ex.Message);
-            }
-        }
-
+       
         public async Task<Response<TechnicalServices>> CreateTechnicalServicesAynce(TechnicalServices technicalServices)
         {
             try
