@@ -370,19 +370,6 @@ namespace Infrastructure.Service
         }
 
      
-        public async Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel)
-        {
-            try
-            {
-                _homeDbContext.Hotels.Update(hotel);
-                await _homeDbContext.SaveChangesAsync();
-                return new Response<Hotel>(hotel);
-            }
-            catch (Exception ex)
-            {
-                return new Response<Hotel>("Failed to update hotel: " + ex.Message);
-            }
-        }
 
         public async Task<Response<TechnicalServices>> UpdateTechnicalServicesAynce(TechnicalServices technicalServices)
         {
