@@ -301,24 +301,7 @@ namespace Infrastructure.Service
 
        
 
-        public async Task<Response<Hotel>> GetByIdHotelAynce(int Id)
-        {
-            try
-            {
-                var hotel = await _homeDbContext.Hotels.FindAsync(Id);
-
-                if (hotel == null)
-                {
-                    return new Response<Hotel>("Hotel   not found.");
-                }
-
-                return new Response<Hotel>(hotel);
-            }
-            catch (Exception ex)
-            {
-                return new Response<Hotel>("Failed to get Hotel: " + ex.Message);
-            }
-        }
+     
 
         public async Task<Response<TechnicalServices>> GetByIdTechnicalServicesAynce(int Id)
         {

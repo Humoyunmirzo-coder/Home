@@ -64,9 +64,23 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<Hotel>> GetByIdHotelAynce(int Id)
+        public async Task<Response<Hotel>> GetByIdHotelAynce(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var hotel = await _homeDbContext.Hotels.FindAsync(Id);
+
+                if (hotel == null)
+                {
+                    return new Response<Hotel>("Hotel   not found.");
+                }
+
+                return new Response<Hotel>(hotel);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Hotel>("Failed to get Hotel: " + ex.Message);
+            }
         }
 
         public Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel)
