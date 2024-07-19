@@ -2,6 +2,7 @@
 using Domain.Entitys.Home;
 using Domain.Model;
 using Infrastructure.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,9 +50,18 @@ namespace Infrastructure.Service
             }
         }
 
-        public Task<Response<List<Hotel>>> GetAllHotelAynce()
+        public async Task<Response<List<Hotel>>> GetAllHotelAynce()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var hotel = await _homeDbContext.Hotels.ToListAsync();
+
+                return new Response<List<Hotel>>(hotel);
+            }
+            catch (Exception ex)
+            {
+                return new Response<List<Hotel>>("Failed to get all  Hotel: " + ex.Message);
+            }
         }
 
         public Task<Response<Hotel>> GetByIdHotelAynce(int Id)

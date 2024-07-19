@@ -223,19 +223,7 @@ namespace Infrastructure.Service
 
         
 
-        public async Task<Response<List<Hotel>>> GetAllHotelAynce()
-        {
-            try
-            {
-                var hotel = await _homeDbContext.Hotels.ToListAsync();
-
-                return new Response<List<Hotel>>(hotel);
-            }
-            catch (Exception ex)
-            {
-                return new Response<List<Hotel>>("Failed to get all  Hotel: " + ex.Message);
-            }
-        }
+     
 
         public async Task<Response<List<TechnicalServices>>> GetAllTechnicalServicesAynce()
         {
