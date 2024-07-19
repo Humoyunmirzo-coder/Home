@@ -29,9 +29,24 @@ namespace Infrastructure.Service
         }
 
 
-        public Task<Response<Hotel>> DeleteHotelAynce(int Id)
+        public async Task<Response<Hotel>> DeleteHotelAynce(int Id)
         {
-            throw new NotImplementedException();
+            var Hotel = await _homeDbContext.Hotels.FindAsync(Id);
+            if (Hotel == null)
+            {
+                return new Response<Hotel>("hotel  not found.");
+            }
+
+            try
+            {
+                _homeDbContext.Hotels.Remove(Hotel);
+                await _homeDbContext.SaveChangesAsync();
+                return new Response<Hotel>(Hotel);
+            }
+            catch (Exception ex)
+            {
+                return new Response<Hotel>("Failed to delete hotel : " + ex.Message);
+            }
         }
 
         public Task<Response<List<Hotel>>> GetAllHotelAynce()
