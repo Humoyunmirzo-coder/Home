@@ -12,7 +12,7 @@ namespace Domain.Entitys.Home
     {
         [Key]
         public int Id { get; set; }
-        public bool HomeOwner { get; set; }           ///  With or without a landlord 
+        public bool HomeOwner { get; set; }           
         public string DayMonth { get; set; }
         /// <summary>
         ///  Day or month type 
