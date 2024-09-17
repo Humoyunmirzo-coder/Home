@@ -12,11 +12,6 @@ namespace Domain.Entitys.Home.Services
     {
         [Key]
         public int Id { get; set; }
- 
         public string FormatType { get; set; }
-
-
-
-
     }
 }
