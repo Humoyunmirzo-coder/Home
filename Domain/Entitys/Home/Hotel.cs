@@ -12,7 +12,11 @@ namespace Domain.Entitys.Home
     {
         [Key]
         public int Id { get; set; }
+      
         public string DayMonth { get; set; }         /// Day or month time 
+        /// <summary>
+        /// dd/mm/yyyy
+        /// </summary>
         public string RoomType { get; set; }
         /// <summary>       
         ///  Bissnes
