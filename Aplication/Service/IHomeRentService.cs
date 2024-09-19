@@ -5,7 +5,6 @@ namespace Aplication.Service
 {
     public interface IHomeRentService
     {
-
         Task<Response<HomeRent>> CreateHomeRentAynce(HomeRent homeRent);
         Task<Response<HomeRent>> DeleteHomeRentAynce(int Id);
         Task<Response<HomeRent>> UpdateHomeRentAynce(HomeRent homeRent);
