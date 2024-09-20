@@ -23,8 +23,6 @@ namespace Infrastructure.DataAccess
         public DbSet<ConstructionMaterials> ConstructionMaterials { get; set; }
         public DbSet<HomeAppliance> HomeAppliances { get; set; }
         public DbSet<HomeEquipment> HomeEquipment { get; set; }
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly( Assembly.GetExecutingAssembly() );
