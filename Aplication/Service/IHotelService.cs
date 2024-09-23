@@ -10,7 +10,6 @@ namespace Aplication.Service
 {
     public interface IHotelService
     {
-
         Task<Response<Hotel>> CreateHotelAynce(Hotel hotel);
         Task<Response<Hotel>> DeleteHotelAynce(int Id);
         Task<Response<Hotel>> UpdateHotelAynce(Hotel hotel);
