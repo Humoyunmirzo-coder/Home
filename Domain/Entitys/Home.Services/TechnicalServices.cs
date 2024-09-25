@@ -9,6 +9,7 @@ namespace Domain.Entitys.Home.Services
 {
     public  class TechnicalServices : ServiceBase
     {
+
         [Key]
         public int Id { get; set; }
         public string TimeType{ get; set; }
