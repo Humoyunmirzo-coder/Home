@@ -13,8 +13,6 @@ namespace Domain.Entitys.Home
     {
         [Key]
         public int Id { get; set; }
-
-      
         public string Discription { get; set; }
         public int YearBuilt { get; set; }
         public string HomeType { get; set; }
